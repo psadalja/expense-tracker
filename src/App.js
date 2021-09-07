@@ -2,6 +2,7 @@ import React from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseForm from "./components/NewExpense/ExpenseForm";
 import NewExpense from "./components/NewExpense/NewExpense";
+import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {
   const expenses = [
@@ -25,10 +26,16 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("in App.js");
+    console.log(expense);
+  };
+
   return (
     <div>
-      <NewExpense />
-      <ExpenseItem
+      <NewExpense onAddExpneseData={addExpenseHandler} />
+      {/* <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
         date={expenses[0].date}
@@ -47,7 +54,8 @@ const App = () => {
         title={expenses[3].title}
         amount={expenses[3].amount}
         date={expenses[3].date}
-      />
+      /> */}
+      <Expenses items={expenses} />
     </div>
   );
 };
