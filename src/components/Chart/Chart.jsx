@@ -5,7 +5,12 @@ const Chart = (props) => {
   return (
     <div className="chart">
       {props.dataPoints.map((dataPoints) => (
-        <ChartBar value={dataPoints.value} />
+        <ChartBar
+          id={dataPoints.label}
+          value={dataPoints.value}
+          label={dataPoints.label}
+          maxValue={null}
+        />
       ))}
     </div>
   );
